@@ -1,4 +1,6 @@
-
+<?php
+require "header.php";
+?>
 <?php
 $id = $_GET['id_no'];
 $connection = new mysqli('localhost','root','','employees');
@@ -19,3 +21,5 @@ if ($connection->query($sql) === TRUE) {
 $connection->close();
 
 ?>
+</body>
+</html>

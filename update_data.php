@@ -1,12 +1,19 @@
 <?php
-session_start();
+require "header.php";
+?>
+<h1>
+<?php
+
 if(!isset($_SESSION['is_logged_id'])){
 	header('Location: index.php');
 }
 
 ?>
 <h1>Hello there <?php echo $_SESSION['logged_in_user']; ?></h1>
+</h1>
+<body>
 <?php
+
 $id= $_GET['id_no'];
 $connection = new mysqli('localhost','root','','employees');
 $sql = "SELECT * FROM empoyes_details WHERE id_no=$id";
@@ -54,3 +61,5 @@ if(isset($_POST['submit'])){
 	$connection->close();
 }
 ?>
+</body>
+</html>

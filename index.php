@@ -1,8 +1,8 @@
 <?php
-session_start();
+require "header.php";
 
 if(isset($_SESSION['is_logged_id'])){
-	echo "Here";
+	//require 'Login.php';
 }else{
 	require 'Login.php';
 }
@@ -16,7 +16,13 @@ if(isset($_POST['Login'])){
 	$result = $connection->query($sql);
 
 	if ($result->num_rows != 1) {
-		echo "Incorrect username or password";exit;
+		echo "Incorrect username or password";
+		
+		if(isset($_SESSION['is_logged_id'])){
+	     require 'register.php';}
+		
+		
+		exit;
 	}else{
 		$_SESSION['is_logged_id'] = true;
 		while($record = $result->fetch_assoc()) {
@@ -26,3 +32,7 @@ if(isset($_POST['Login'])){
 	}
 }
 ?>
+
+<A HREF = register.php> Click here to register </A>
+</body>
+</html>

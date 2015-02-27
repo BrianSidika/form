@@ -1,8 +1,18 @@
-<?php
-require "header.php";
-?>
+<html>
+<head>
+<style>
+h1{
+     background-color:lightblue;
+    color:purple;
+	}
+	body{
+	background-color:#000000
+	color:black;
+	]
+</style>
+<head>
 <h1><?php
-
+session_start();
 if(!isset($_SESSION['is_logged_id'])){
 	header('Location: index.php');
 }
@@ -15,8 +25,7 @@ border-collapse:collapse;
 }
 </style>
 <pre>
-<h1>Hello there <?php echo $_SESSION['logged_in_user']; ?></h1></h1>
-<body>
+<h1>Hello there <?php echo $_SESSION['logged_in_user']; ?></h1>
 <?php
 $connection = new mysqli('localhost','root','','employees');
 if($connection->connect_error){
@@ -64,5 +73,6 @@ $connection->close();
 
 ?>
 
-</body>
+</h1>
 </html>
+
